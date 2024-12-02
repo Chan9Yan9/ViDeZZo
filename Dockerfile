@@ -59,12 +59,3 @@ RUN apt-get install -y kmod
 # fix missing slirp
 RUN apt-get install -y libslirp-dev
 
-FROM base as development
-
-# update llvm toolchains
-RUN python3 -m pip install --upgrade --no-cache-dir gdown \
-    --disable-pip-version-check --root-user-action=ignore
-RUN mkdir llvm-project
-RUN cd llvm-project && gdown https://drive.google.com/uc?id=1bHHYPwpmFaEvhkNcZuCa_Fbk8A41IEJr && \
-tar xf llvm-project-13.tar.gz && cd $OLDPWD
-ENV PATH=/root/llvm-project/bin:$PATH
