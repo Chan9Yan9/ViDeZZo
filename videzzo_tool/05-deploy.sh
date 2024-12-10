@@ -31,7 +31,7 @@ case "${o}" in
    ;;
  v)
    vmm=${OPTARG}
-   ((vmm == 'vbox' || vmm == 'qemu' || vmm == 'all')) || usage
+   [[ "${vmm}" == 'vbox' || "${vmm}" == 'qemu' || "${vmm}" == 'all' ]] || usage
    ;;
  *)
    usage
